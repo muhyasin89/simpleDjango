@@ -20,7 +20,7 @@ urlpatterns = [
         name="order-detail",
     ),
     path(
-        "orders/status",
+        "orders/status/",
         OrderStatusListView.as_view(),
         name="order-list",
     ),
