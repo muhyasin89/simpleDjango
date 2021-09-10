@@ -10,10 +10,32 @@ from rest_framework.generics import (
 from rest_framework.response import Response
 
 
+def get_filtering_order(queryset, urls_params):
+    if "sort" in urls_params:
+        if urls_params["sort"].lower() == "pending":
+            queryset = Order.pending.all()
+        elif urls_params["sort"].lower() == "complete":
+            queryset = Order.complete.all()
+        elif urls_params["sort"].lower() == "failed":
+            queryset = Order.failed.all()
+
+    return queryset
+
+
 class OrderListView(ListCreateAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
     ordering_fields = "-date_created"
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+
+        urls_params = self.request.GET
+
+        if urls_params:
+            queryset = get_filtering_order(queryset, urls_params)
+
+        return queryset
 
 
 class OrderRetrieveUpdateDeleteView(RetrieveUpdateDestroyAPIView):

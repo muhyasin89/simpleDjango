@@ -6,27 +6,39 @@ from . import ORDER_STATUS, Complete, Failed, Pending
 class OrderFailedManager(models.Manager):
     def get_queryset(self):
         return (
-            super().get_queryset().order_status.filter(status=Failed)
-            if super().get_queryset().order_status.count()
-            else super().get_queryset().none()
+            (
+                super().get_queryset().order_status.filter(status=Failed)
+                if super().get_queryset().order_status.count()
+                else super().get_queryset().none()
+            )
+            if super().get_queryset()
+            else super().get_queryset()
         )
 
 
 class OrderPendingManager(models.Manager):
     def get_queryset(self):
         return (
-            super().get_queryset().order_status.filter(status=Pending)
-            if super().get_queryset().order_status.count()
-            else super().get_queryset().none()
+            (
+                super().get_queryset().order_status.filter(status=Pending)
+                if super().get_queryset().order_status.count()
+                else super().get_queryset().none()
+            )
+            if super().get_queryset()
+            else super().get_queryset()
         )
 
 
 class OrderCompleteManager(models.Manager):
     def get_queryset(self):
         return (
-            super().get_queryset().order_status.filter(status=Complete)
-            if super().get_queryset().order_status.count()
-            else super().get_queryset().none()
+            (
+                super().get_queryset().order_status.filter(status=Complete)
+                if super().get_queryset().order_status.count()
+                else super().get_queryset().none()
+            )
+            if super().get_queryset()
+            else super().get_queryset()
         )
 
 
