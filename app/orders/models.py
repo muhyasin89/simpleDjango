@@ -34,6 +34,8 @@ class OrderCompleteManager(models.Manager):
 class Order(models.Model):
     name = models.CharField(max_length=225)
 
+    objects = models.Manager()
+
     failed = OrderFailedManager()
     pending = OrderPendingManager()
     complete = OrderCompleteManager()
