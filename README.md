@@ -31,3 +31,16 @@ sudo apt install python3-pip
 https://phoenixnap.com/kb/install-pip-windows
 ```
 
+for testing the api
+```
+http://localhost:8002/api/v1/orders?sort=pending
+http://localhost:8002/api/v1/orders?sort=complete
+http://localhost:8002/api/v1/orders?sort=failed
+
+http://localhost:8002/api/v1/orders
+
+http://localhost:8002/api/v1/order/2/detail
+
+http://localhost:8002/api/v1/orders/status/
+http://localhost:8002/api/v1/order/status/3/detail/
+```
