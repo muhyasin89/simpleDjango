@@ -8,7 +8,7 @@ class OrderSerializer(ModelSerializer):
         fields = "__all__"
 
 
-class OrderStatusBuildingSerializer(ModelSerializer):
+class OrderStatusSerializer(ModelSerializer):
     class Meta:
         model = OrderStatus
         fields = "__all__"
