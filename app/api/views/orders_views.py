@@ -8,6 +8,7 @@ from rest_framework.response import Response
 
 
 class OrderListView(ListCreateAPIView):
+    queryset = Order.objects.all()
     serializer_class = OrderSerializer
     ordering_fields = "-date_created"
 
