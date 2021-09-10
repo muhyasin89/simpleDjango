@@ -1,5 +1,5 @@
 """
-WSGI config for App project.
+WSGI config for app project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
